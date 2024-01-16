@@ -6,7 +6,8 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-import streamlit
+import  streamlit as st
+
 
 penguin_df = pd.read_csv('penguins.csv')
 penguin_df.dropna(inplace=True)

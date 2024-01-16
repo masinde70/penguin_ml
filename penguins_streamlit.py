@@ -3,6 +3,19 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
+from streamlit_lottie import st_lottie
+import requests
+
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+lottie_penguin = load_lottieurl(
+    "https://assets9.lottiefiles.com/private_files/lf30_lntyk83o.json"
+)
+st_lottie(lottie_penguin, height=200, speed=1, reverse=False, loop=True, quality="low")
 
 st.title('Penguin Classifier: A Machine Learning App')
 st.write("This app uses 6 inputs to predict the species of penguin using "
